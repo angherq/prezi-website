@@ -8,7 +8,7 @@ function homescreen() {
     sessionStorage.newest_first = 0;
 
     $.ajax({
-        url: "http://localhost:8080/prezis",
+        url: "https://whispering-sea-16446.herokuapp.com/prezis",
         dataType: "json",    
         context: document.body,
         success: function(data) {
@@ -53,7 +53,7 @@ $( ".search-box" ).keyup(function() {
     var text = $(this).val();  
     if(text) {
         $.ajax({
-            url: "http://localhost:8080/search/" + text,
+            url: "https://whispering-sea-16446.herokuapp.com/search/" + text,
             dataType: "json",    
             context: document.body,
             success: function(data) {
@@ -101,9 +101,9 @@ $( ".search-box" ).keyup(function() {
 $('.load-more').on('click', function() {
     
     if(Number(sessionStorage.newest_first)) 
-        var load_url = "http://localhost:8080/ordered/prezis/" + sessionStorage.skip;
+        var load_url = "https://whispering-sea-16446.herokuapp.com/ordered/prezis/" + sessionStorage.skip;
     else
-        var load_url = "http://localhost:8080/prezis/" + sessionStorage.skip;
+        var load_url = "https://whispering-sea-16446.herokuapp.com/prezis/" + sessionStorage.skip;
 
     $.ajax({
         url: load_url,
@@ -161,7 +161,7 @@ $('.load-more').on('click', function() {
 $('.newest-first').on('click', function() {
     sessionStorage.newest_first = 1;
     $.ajax({
-        url: "http://localhost:8080/ordered/prezis",
+        url: "https://whispering-sea-16446.herokuapp.com/ordered/prezis",
         dataType: "json",    
         context: document.body,
         success: function(data) {
